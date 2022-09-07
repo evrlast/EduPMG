@@ -1,0 +1,14 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.account-bar {
+  display: flex;
+  gap: 30px;
+}
+
+mat-nav-list {
+  padding: 0;
+  margin: 0 10px;
+}
+

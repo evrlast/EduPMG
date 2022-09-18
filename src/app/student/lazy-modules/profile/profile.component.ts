@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthorisationService} from "../services/authorisation.service";
+import {AuthorisationService} from "../../../services/authorisation.service";
 
 export type Profile = {
   login: string,

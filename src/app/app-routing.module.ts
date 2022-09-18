@@ -1,27 +1,33 @@
-import { NgModule } from '@angular/core'
-import { Routes, RouterModule } from '@angular/router'
-import {LoginComponent} from "./login/login.component";
-import {RegisterComponent} from "./register/register.component";
+import {NgModule} from '@angular/core'
+import {RouterModule, Routes} from '@angular/router'
+import {LoginComponent} from "./components/login/login.component";
+import {RegisterComponent} from "./components/register/register.component";
 import {AuthGuard} from "./guard/auth.guard";
+
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./main/main.module').then(m => m.MainModule),
-    canActivate: [AuthGuard]
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'student',
+    loadChildren: () => import('./student/student.module').then(m => m.StudentModule),
+    canActivate: [AuthGuard],
+    outlet: 'student'
   },
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [AuthGuard],
+    // outlet: 'app'
   },
   {
     path: 'register',
-    component: RegisterComponent
-  },
-  {
-    path: 'profile',
-    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule),
-    canActivate: [AuthGuard]
+    component: RegisterComponent,
+    canActivate: [AuthGuard],
+    // outlet: 'app'
   },
 ]
 

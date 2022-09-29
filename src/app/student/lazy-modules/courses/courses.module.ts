@@ -11,6 +11,7 @@ import {RouterModule} from "@angular/router";
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
+import { TopicInnerComponent } from './components/toppic-inner/topic-inner.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import {FormsModule} from "@angular/forms";
     CourseComponent,
     CourseInnerComponent,
     TopicComponent,
+    TopicInnerComponent,
   ],
   imports: [
     CommonModule,

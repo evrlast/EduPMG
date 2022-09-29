@@ -18,16 +18,20 @@ const routes: Routes = [
     outlet: 'student'
   },
   {
+    path: 'teacher',
+    loadChildren: () => import('./teacher/teacher.module').then(m => m.TeacherModule),
+    canActivate: [AuthGuard],
+    outlet: 'teacher'
+  },
+  {
     path: 'login',
     component: LoginComponent,
     canActivate: [AuthGuard],
-    // outlet: 'app'
   },
   {
     path: 'register',
     component: RegisterComponent,
     canActivate: [AuthGuard],
-    // outlet: 'app'
   },
 ]
 

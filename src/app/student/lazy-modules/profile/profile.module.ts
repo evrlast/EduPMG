@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfileComponent } from './profile.component';
+import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileRoutingModule } from './profile-routing.module';
 import {MatCardModule} from "@angular/material/card";
-import { ProfileCardComponent } from './profile-card/profile-card.component';
+import { ProfileCardComponent } from './components/profile-card/profile-card.component';
 
 
 

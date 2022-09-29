@@ -13,7 +13,6 @@ export class CoursesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute) {
     this.courses = this.route.snapshot.data['routeData']
-    console.log(this.courses)
   }
 
   ngOnInit(): void {

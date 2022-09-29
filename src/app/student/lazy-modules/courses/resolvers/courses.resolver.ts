@@ -18,8 +18,8 @@ export class CoursesResolver {
   }
 
   async resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<{routeData: CourseData[]}> {
-    return this.server.get<[any]>('getCourses').pipe(map((data: any) => {
-      return data.responseData
+    return this.server.get<[any]>('student/getCourses').pipe(map((data: any) => {
+      return data
     })).toPromise()
   }
 }

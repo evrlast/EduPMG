@@ -2,21 +2,19 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
 import {StudentRoutingModule} from './student-routing.module';
-import {HeaderComponent} from "./components/header/header.component";
 import {SideNavBarComponent} from "./components/side-nav-bar/side-nav-bar.component";
 import {StudentComponent} from "./components/student-page/student.component";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {MatButtonModule} from "@angular/material/button";
+import {SharedModule} from "../shared/shared.module";
 
 
 @NgModule({
   declarations: [
     StudentComponent,
-    HeaderComponent,
-    SideNavBarComponent,
-
+    SideNavBarComponent
   ],
   exports: [
     SideNavBarComponent,
@@ -25,10 +23,11 @@ import {MatButtonModule} from "@angular/material/button";
   imports: [
     CommonModule,
     StudentRoutingModule,
+    SharedModule,
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class StudentModule {

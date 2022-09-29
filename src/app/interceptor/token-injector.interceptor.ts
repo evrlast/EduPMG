@@ -27,10 +27,16 @@ export class TokenInjectorInterceptor implements HttpInterceptor {
         },
         (err) => {
           if (err instanceof HttpErrorResponse) {
-            if (err.status == 401){}
+            if (err.status == 401){
+              this.authService.isLoggedIn = false
+              this.authService.token = ''
               this.router.navigate(['/login'])
-            if (err.status == 403)
+            }
+
+            if (err.status == 403){
               this.router.navigate([''])
+            }
+
           }
         }
       )

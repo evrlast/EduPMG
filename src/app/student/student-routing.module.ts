@@ -3,11 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 import {AuthGuard} from "../guard/auth.guard";
 import {StudentComponent} from "./components/student-page/student.component";
 import {CoursesResolver} from "./lazy-modules/courses/resolvers/courses.resolver";
+import {MainComponent} from "../shared/components/main/main.component";
+import {StudentResolver} from "./resolvers/student.resolver";
 
 const routes: Routes = [
   {
     path: 'student',
     component: StudentComponent,
+    resolve: {routeData: StudentResolver},
     children: [
       {
         path: '',
@@ -16,13 +19,13 @@ const routes: Routes = [
       },
       {
         path: 'main',
-        loadChildren: () => import('./lazy-modules/main/main.module').then(m => m.MainModule),
-        canActivate: [AuthGuard]
+        component: MainComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'profile',
         loadChildren: () => import('./lazy-modules/profile/profile.module').then(m => m.ProfileModule),
-        canActivate: [AuthGuard]
+        canActivate: [AuthGuard],
       },
       {
         path: 'courses',

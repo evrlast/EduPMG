@@ -3,20 +3,21 @@ import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
 import {map} from 'rxjs';
 import {ServerRequestService} from "../../../../services/server-request.service";
 
-export type TopicData = {
+export type ProfileData = {
   name: string,
-  _id: any
+  surname: string,
+  login: string,
+  email: string,
 }
 
 @Injectable({
   providedIn: 'root'
 })
-
-export class CourseInnerResolver{
+export class ProfileResolver {
   constructor(private server: ServerRequestService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot):  Promise<{routeData: TopicData[]}> {
-    return this.server.post<[any]>('student/getTopics', {courseId: route.params['courseId']}).pipe(map((data: any) => {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<ProfileData> {
+    return this.server.get<[any]>('student/profile').pipe(map((data: any) => {
       return data
     })).toPromise()
   }

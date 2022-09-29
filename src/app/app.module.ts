@@ -21,12 +21,13 @@ import {AuthorisationService} from "./services/authorisation.service";
 import {AuthGuard} from "./guard/auth.guard";
 import {TokenInjectorInterceptor} from "./interceptor/token-injector.interceptor";
 import {StudentModule} from "./student/student.module";
+import {TeacherModule} from "./teacher/teacher.module";
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +44,8 @@ import {StudentModule} from "./student/student.module";
     MatCardModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StudentModule
+    StudentModule,
+    TeacherModule,
   ],
   providers: [
     AuthorisationService,

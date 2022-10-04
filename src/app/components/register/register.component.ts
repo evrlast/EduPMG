@@ -82,7 +82,8 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(8),
         this.forbiddenPasswordValidator()]),
       confirmPassword: new FormControl('', [
-        Validators.required])
+        Validators.required]),
+      teacherCode: new FormControl('')
     }, {validator: this.matchPassword()})
   }
 
@@ -94,6 +95,7 @@ export class RegisterComponent implements OnInit {
         email: this.registerForm.value.email,
         login: this.registerForm.value.login,
         password: this.registerForm.value.password,
+        teacherCode: this.registerForm.value.teacherCode
       }
       this.authService.register(user)
     }

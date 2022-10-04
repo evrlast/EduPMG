@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthorisationService} from "../../../services/authorisation.service";
 
 @Component({
   selector: 'app-teacher-nav-bar',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeacherNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: AuthorisationService) {
+  }
+
 
   ngOnInit(): void {
   }
 
+  ngOnDestroy(): void { }
+
+  logout() {
+    this.authService.logout()
+  }
 }

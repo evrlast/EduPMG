@@ -32,11 +32,6 @@ export class TokenInjectorInterceptor implements HttpInterceptor {
               this.authService.token = ''
               this.router.navigate(['/login'])
             }
-
-            if (err.status == 403){
-              this.router.navigate([''])
-            }
-
           }
         }
       )

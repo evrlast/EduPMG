@@ -1,0 +1,38 @@
+.nav-bar {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+
+  width: 230px;
+  flex: 0 0 230px;
+  background: #262626;
+  height: 100vh;
+
+  box-sizing: border-box;
+
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.logo {
+  padding: 11px;
+  text-align: center;
+  font-size: 35px;
+  color: #FFF;
+}
+
+.nav-links {
+  overflow-y: auto;
+  color: #DDD;
+}
+
+.link {
+  padding: 7px 0;
+  text-align: left;
+  width: 100%;
+  font-size: 16px;
+}
+
+.link mat-icon {
+  position: relative;
+  top: -2px;
+}

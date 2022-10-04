@@ -16,20 +16,21 @@ export class AuthGuard implements CanActivate {
 
 
     if (this.authService.isLoggedIn) {
-      if (route.url[0]?.path == 'login' || route.url[0]?.path == 'register') {
-        this.router.navigate([this.authService.userType || 'student'])
-        return false
-      }
-      return true
-    }
-    else {
-      if (route.url[0]?.path == 'login' || route.url[0]?.path == 'register') {
-        return true
-      }
-
-      this.router.navigate([this.authService.userType])
+      this.router.navigate(['forbidden'])
       return false
-    }
+    } else return true
+
+    // if (this.authService.isLoggedIn) {
+    //   if (route.url[0]?.path == 'login' || route.url[0]?.path == 'register') {
+    //     this.router.navigate([this.authService.userType])
+    //     return false
+    //   }
+    //   return true
+    // }
+    // else {
+    //   return route.url[0]?.path == 'login' || route.url[0]?.path == 'register'
+    //
+    // }
   }
 
 

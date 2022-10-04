@@ -22,12 +22,16 @@ import {AuthGuard} from "./guard/auth.guard";
 import {TokenInjectorInterceptor} from "./interceptor/token-injector.interceptor";
 import {StudentModule} from "./student/student.module";
 import {TeacherModule} from "./teacher/teacher.module";
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
+    ForbiddenComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,6 @@
-import { Injectable } from '@angular/core';
-import {
-  Router, Resolve,
-  RouterStateSnapshot,
-  ActivatedRouteSnapshot
-} from '@angular/router';
-import {map, Observable, of} from 'rxjs';
+import {Injectable} from '@angular/core';
+import {ActivatedRouteSnapshot, RouterStateSnapshot} from '@angular/router';
+import {map} from 'rxjs';
 import {ServerRequestService} from "../../../services/server-request.service";
 
 export type TeacherData = {

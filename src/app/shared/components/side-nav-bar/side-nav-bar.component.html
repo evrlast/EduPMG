@@ -1,0 +1,16 @@
+<div class="nav-bar">
+  <mat-nav-list class="logo">
+    <a class="mat-primary" routerLink="/">
+      EduPMG
+    </a>
+  </mat-nav-list>
+  <mat-nav-list class="nav-links">
+    <div *ngIf="userType === 'student'">
+      <button *ngFor="let item of studentNavList" class="link" mat-button routerLink="{{item.route}}"><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</button>
+    </div>
+    <div *ngIf="userType === 'teacher'">
+      <button *ngFor="let item of teacherNavList" class="link" mat-button routerLink="{{item.route}}"><mat-icon>{{item.icon}}</mat-icon>{{item.title}}</button>
+    </div>
+    <button class="link" (click)="logout()" mat-button><mat-icon>exit_to_app</mat-icon> Вийти з аккаунту</button>
+  </mat-nav-list>
+</div>

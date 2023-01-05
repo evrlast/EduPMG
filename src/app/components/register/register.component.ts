@@ -9,6 +9,7 @@ import {
   Validators
 } from "@angular/forms";
 import {AuthorisationService, userRegister} from "../../services/authorisation.service";
+import {BehaviorSubject} from "rxjs";
 
 
 @Component({
@@ -22,6 +23,7 @@ export class RegisterComponent implements OnInit {
   hide2: boolean = true
   passwordAreNotEqual: boolean | undefined
   registerForm: FormGroup
+  error: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
   account_validation_messages = {
     'name': [
@@ -85,6 +87,7 @@ export class RegisterComponent implements OnInit {
         Validators.required]),
       teacherCode: new FormControl('')
     }, {validator: this.matchPassword()})
+    this.error = authService.error
   }
 
   register() {

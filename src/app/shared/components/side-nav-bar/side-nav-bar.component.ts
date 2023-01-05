@@ -32,8 +32,8 @@ export class SideNavBarComponent implements OnInit {
       },
       {
         title: 'Заплановані вебінари',
-        icon: '',
-        route: 'event'
+        icon: 'event',
+        route: ''
       },
       {
         title: 'Активні вебінари',
@@ -66,7 +66,7 @@ export class SideNavBarComponent implements OnInit {
     {
       title: 'Створені групи',
       icon: 'face',
-      route: ''
+      route: 'groups'
     },
     {
       title: 'Заплановані вебінари',

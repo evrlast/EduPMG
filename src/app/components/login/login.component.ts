@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthorisationService, userLogin} from "../../services/authorisation.service";
+import {BehaviorSubject} from "rxjs";
 
 @Component({
   selector: 'app-login',
@@ -10,6 +11,7 @@ import {AuthorisationService, userLogin} from "../../services/authorisation.serv
 export class LoginComponent implements OnInit {
   hide: boolean = true
   sign_in: FormGroup
+  error: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
   login_validation = {
     type: 'required',
@@ -27,6 +29,7 @@ export class LoginComponent implements OnInit {
       login: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
     })
+    this.error = this.authService.error
   }
 
   login() {

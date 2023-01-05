@@ -5,11 +5,13 @@ import {CourseInnerComponent} from "./components/course-inner/course-inner.compo
 import {CourseInnerResolver} from "./resolvers/course-inner.resolver";
 import {TopicInnerComponent} from "./components/toppic-inner/topic-inner.component";
 import {TopicInnerResolver} from "./resolvers/topic-inner.resolver";
+import {CoursesResolver} from "./resolvers/courses.resolver";
 
 const routes: Routes = [
   {
     path: '',
     component: CoursesComponent,
+    resolve: {routeData: CoursesResolver}
   },
   {
     path: ':courseId',

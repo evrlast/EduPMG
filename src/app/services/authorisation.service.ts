@@ -2,6 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {ServerRequestService} from "./server-request.service";
 import {Router} from "@angular/router";
+import {BehaviorSubject, of} from "rxjs";
 
 export type userLogin = { login: string, password: string }
 
@@ -14,9 +15,7 @@ export type userRegister = {
   teacherCode: string,
 }
 
-export type profile = {
-
-}
+export type profile = {}
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +23,7 @@ export type profile = {
 export class AuthorisationService {
   token = ''
   userType = ''
+  error: BehaviorSubject<string> = new BehaviorSubject<string>('')
 
   isLoggedIn: boolean = false
 
@@ -37,10 +37,19 @@ export class AuthorisationService {
 
 
   async login(user: userLogin) {
-    const response = this.server.post<{ accessToken: string, userType: string }>('login', user)
+
+    const response = this.server.post<{ accessToken: string, userType: string, error: string}>('login', user)
     const subscription = response.subscribe((res) => {
-      this.token = res.accessToken
-      this.userType = res.userType
+
+      if (res.error) {
+        this.error.next(res.error)
+        return
+      }
+
+
+      this.token = res?.accessToken
+      this.userType = res?.userType
+      this.error.next('')
 
       this.isLoggedIn = true
 
@@ -50,6 +59,7 @@ export class AuthorisationService {
       subscription.unsubscribe()
       this.router.navigate([this.userType])
     })
+
   }
 
   async logout() {
@@ -64,9 +74,14 @@ export class AuthorisationService {
   }
 
   async register(user: userRegister) {
-    const response = this.server.post<userRegister>('register', user)
-    const subscription = response.subscribe((item) => {
+    const response = this.server.post<any>('register', user)
+    const subscription = response.subscribe((res) => {
       subscription.unsubscribe()
+
+      this.error.next('')
+
+      this.router.navigate(['login'])
+
     })
   }
 

@@ -27,6 +27,7 @@
       <mat-card-actions>
         <button mat-raised-button type="submit" color="primary">LOGIN</button>
       </mat-card-actions>
+      <mat-error class="error-message" *ngIf="error.value.length > 0">{{error.value}}</mat-error>
       <a mat-button routerLink="/register">Register</a>
     </form>
   </mat-card-content>

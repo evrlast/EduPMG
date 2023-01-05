@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorisationService} from "../../../../../services/authorisation.service";
-import {StudentData} from "../../../../resolvers/student.resolver";
+import {StudentData} from "../../../../../student/resolvers/student.resolver";
 import {ActivatedRoute} from "@angular/router";
 import {ProfileData} from "../../resolver/profile.resolver";
 

@@ -8,6 +8,7 @@ import {MainComponent} from "./components/main/main.component";
 import {SideNavBarComponent} from "./components/side-nav-bar/side-nav-bar.component";
 import {MatIconModule} from "@angular/material/icon";
 import {MatButtonModule} from "@angular/material/button";
+import {ProfileModule} from "./components/profile/profile.module";
 
 
 
@@ -19,6 +20,7 @@ import {MatButtonModule} from "@angular/material/button";
   ],
   exports: [
     HeaderComponent,
+    ProfileModule,
     MainComponent,
     SideNavBarComponent
   ],
